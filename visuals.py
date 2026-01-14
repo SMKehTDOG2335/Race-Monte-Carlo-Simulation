@@ -1,7 +1,15 @@
 """
-Telemetry Visualization
-Race Engineer Approved - v2.0
+Copyright (c) 2026 Steve Mathews Korah. All rights reserved.
+
+DISCLAIMER: This project, "Race-Monte-Carlo-Simulation", is proprietary software. 
+Any external use, reproduction, or distribution of this code in any capacity 
+without explicit written permission from Steve Mathews Korah is strictly prohibited.
+
+This project utilizes the "Fast-F1" library (theOehrly/Fast-F1). 
+We do not claim ownership of the Fast-F1 library or the underlying F1 data 
+provided by its API. Use of Fast-F1 data is subject to their own terms and disclaimers.
 """
+import fastf1
 import streamlit as st
 import plotly.graph_objects as go
 import numpy as np

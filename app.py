@@ -1,6 +1,13 @@
 """
-Monte Carlo Race Strategy Simulator
-Race Engineer Approved - v2.0
+Copyright (c) 2026 Steve Mathews Korah. All rights reserved.
+
+DISCLAIMER: This project, "Race-Monte-Carlo-Simulation", is proprietary software. 
+Any external use, reproduction, or distribution of this code in any capacity 
+without explicit written permission from Steve Mathews Korah is strictly prohibited.
+
+This project utilizes the "Fast-F1" library (theOehrly/Fast-F1). 
+We do not claim ownership of the Fast-F1 library or the underlying F1 data 
+provided by its API. Use of Fast-F1 data is subject to their own terms and disclaimers.
 """
 import streamlit as st
 import numpy as np
@@ -92,6 +99,13 @@ if 'track_data' in st.session_state:
 st.sidebar.header("🎲 Simulation")
 enable_sc = st.sidebar.checkbox("Enable Safety Car", value=True)
 sims = st.sidebar.slider("Monte Carlo Simulations", 500, 10000, 2000)
+
+st.sidebar.divider()
+st.sidebar.caption("© 2026 Steve Mathews Korah. All Rights Reserved.")
+st.sidebar.caption("Data powered by [Fast-F1](https://github.com/theOehrly/Fast-F1)")
+with st.sidebar.expander("⚖️ Legal Disclaimer"):
+    st.info("This project is proprietary. Any external use or distribution without explicit permission is prohibited.")
+    st.warning("Formula 1 data is provided by Fast-F1 API. We do not claim ownership of the underlying data.")
 
 # Build params dict
 sim_params = {

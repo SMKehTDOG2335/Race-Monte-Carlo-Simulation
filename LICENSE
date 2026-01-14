@@ -1,0 +1,19 @@
+PROPRIETARY LICENSE
+
+Copyright (c) 2026 Steve Mathews Korah. All rights reserved.
+
+1. EXCLUSIVITY & OWNERSHIP
+This software, "Race-Monte-Carlo-Simulation", and all associated documentation are the exclusive property of Steve Mathews Korah.
+
+2. EXTERNAL USE RESTRICTIONS
+Any external use, reproduction, redistribution, or modification of this project in any capacity is strictly prohibited without the express written consent of Steve Mathews Korah. Unauthorized use may lead to legal action.
+
+3. DISCLAIMER OF LIABILITY
+This software is provided "as is", without warranty of any kind, express or implied. In no event shall the author be liable for any claim, damages, or other liability arising from the use of the software.
+
+4. THIRD-PARTY DATA & LIBRARIES
+This project integrates the "Fast-F1" library (theOehrly/Fast-F1). 
+- We acknowledge and attribute the data capabilities to the authors of the Fast-F1 repository.
+- We do not claim ownership over the underlying Formula 1 timing data or the Fast-F1 library itself.
+- Use of the Fast-F1 integration within this app is subject to the terms of the Fast-F1 library and its data providers.
+- Steve Mathews Korah is not responsible for the accuracy or availability of external F1 data.
