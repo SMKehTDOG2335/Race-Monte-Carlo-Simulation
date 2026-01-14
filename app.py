@@ -104,7 +104,8 @@ st.sidebar.divider()
 st.sidebar.caption("© 2026 Steve Mathews Korah. All Rights Reserved.")
 st.sidebar.caption("Data powered by [Fast-F1](https://github.com/theOehrly/Fast-F1)")
 with st.sidebar.expander("⚖️ Legal Disclaimer"):
-    st.info("This project is proprietary. Any external use or distribution without explicit permission is prohibited.")
+    st.info("This project is proprietary.This application is for demonstration and educational purposes only.  
+Unauthorized reproduction, redistribution, or commercial use is prohibited. Any external use or distribution without explicit permission is prohibited.")
     st.warning("Formula 1 data is provided by Fast-F1 API. We do not claim ownership of the underlying data.")
 
 # Build params dict
