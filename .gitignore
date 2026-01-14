@@ -1,0 +1,11 @@
+fastf1_cache/
+__pycache__/
+*.pyc
+.streamlit/
+.env
+venv/
+env/
+dist/
+build/
+*.egg-info/
+.DS_Store
