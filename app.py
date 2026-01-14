@@ -148,9 +148,16 @@ if st.button("🎲 Run Monte Carlo Analysis", type="primary"):
         col3.metric("Worst Case (P95)", f"{np.percentile(results, 95):.2f}s")
         col4.metric("Finish Rate", f"{100 * len(results) / sims:.1f}%")
         
-        st.subheader("📊 Race Time Distribution")
-        hist_values, _ = np.histogram(results, bins=40)
-        st.bar_chart(hist_values)
+        fig_dist = go.Figure()
+        fig_dist.add_trace(go.Histogram(x=results, nbinsx=40, marker_color='#3498db', opacity=0.75))
+        fig_dist.update_layout(
+            title='📊 Race Time Distribution',
+            xaxis_title='Total Race Time (s)',
+            yaxis_title='Frequency (Simulations)',
+            template='plotly_dark',
+            bargap=0.1
+        )
+        st.plotly_chart(fig_dist, use_container_width=True)
     else:
         st.error("❌ All simulations resulted in DNF. Reduce engine stress or increase reliability.")
 

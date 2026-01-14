@@ -17,32 +17,80 @@ import numpy as np
 
 def show_telemetry(df):
     """
-    Displays race telemetry using Streamlit's native charts.
+    Displays race telemetry using Plotly for professional axis labeling and units.
     """
-    st.subheader("📈 Lap Time Evolution")
-    st.line_chart(df.set_index("Lap")["LapTime"])
+    # Lap Time Evolution
+    fig_lap = go.Figure()
+    fig_lap.add_trace(go.Scatter(x=df['Lap'], y=df['LapTime'], name='Lap Time', line=dict(color='#3498db', width=2)))
+    fig_lap.update_layout(
+        title='⏱️ Lap Time Evolution',
+        xaxis_title='Lap Number',
+        yaxis_title='Lap Time (s)',
+        template='plotly_dark',
+        height=350,
+        margin=dict(l=20, r=20, t=50, b=20)
+    )
+    st.plotly_chart(fig_lap, use_container_width=True)
 
     col1, col2 = st.columns(2)
     
+    # Engine Power
     with col1:
-        st.subheader("⚡ Engine Power")
-        st.line_chart(df.set_index("Lap")["Power"])
+        fig_pwr = go.Figure()
+        fig_pwr.add_trace(go.Scatter(x=df['Lap'], y=df['Power'], name='Power', line=dict(color='#e74c3c', width=2)))
+        fig_pwr.update_layout(
+            title='⚡ Engine Power',
+            xaxis_title='Lap Number',
+            yaxis_title='Power (hp)',
+            template='plotly_dark',
+            height=300,
+            margin=dict(l=20, r=20, t=50, b=20)
+        )
+        st.plotly_chart(fig_pwr, use_container_width=True)
     
+    # Engine Temperature
     with col2:
-        st.subheader("🌡️ Engine Temperature")
-        st.line_chart(df.set_index("Lap")["Temp"])
+        fig_temp = go.Figure()
+        fig_temp.add_trace(go.Scatter(x=df['Lap'], y=df['Temp'], name='Temp', line=dict(color='#f39c12', width=2)))
+        fig_temp.update_layout(
+            title='🌡️ Engine Temperature',
+            xaxis_title='Lap Number',
+            yaxis_title='Temperature (°C)',
+            template='plotly_dark',
+            height=300,
+            margin=dict(l=20, r=20, t=50, b=20)
+        )
+        st.plotly_chart(fig_temp, use_container_width=True)
     
-    # New telemetry from v2.0
+    # Fuel and Tyre Effects
     if 'FuelPenalty' in df.columns:
         col3, col4 = st.columns(2)
         
         with col3:
-            st.subheader("⛽ Fuel Effect")
-            st.line_chart(df.set_index("Lap")["FuelPenalty"])
+            fig_fuel = go.Figure()
+            fig_fuel.add_trace(go.Scatter(x=df['Lap'], y=df['FuelPenalty'], name='Fuel Penalty', line=dict(color='#9b59b6', width=2)))
+            fig_fuel.update_layout(
+                title='⛽ Fuel Weight Penalty',
+                xaxis_title='Lap Number',
+                yaxis_title='Time Penalty (s)',
+                template='plotly_dark',
+                height=300,
+                margin=dict(l=20, r=20, t=50, b=20)
+            )
+            st.plotly_chart(fig_fuel, use_container_width=True)
         
         with col4:
-            st.subheader("🛞 Tyre Degradation")
-            st.line_chart(df.set_index("Lap")["TyreDeg"])
+            fig_tyre = go.Figure()
+            fig_tyre.add_trace(go.Scatter(x=df['Lap'], y=df['TyreDeg'], name='Tyre Deg', line=dict(color='#2ecc71', width=2)))
+            fig_tyre.update_layout(
+                title='🛞 Tyre Degradation Effect',
+                xaxis_title='Lap Number',
+                yaxis_title='Time Penalty (s)',
+                template='plotly_dark',
+                height=300,
+                margin=dict(l=20, r=20, t=50, b=20)
+            )
+            st.plotly_chart(fig_tyre, use_container_width=True)
     
     # Safety Car indicator
     if 'SafetyCar' in df.columns and df['SafetyCar'].any():
